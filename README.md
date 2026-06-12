@@ -66,6 +66,8 @@ Identitas visual Kinetika. Dinamai dari edge compute node yang menginspirasinya.
 
 **Tone:** Warm-dark sebagai default. Light mode dengan base Linen. Bukan cool-dark seperti kebanyakan dark theme — warm dan honest.
 
+**Tokens:** [`design/tokens.json`](./design/tokens.json) adalah source of truth (machine-readable, AX-friendly); `tokens.css` digenerate darinya dengan gerbang kontras WCAG AA. Live preview: [`design/preview.html`](./design/preview.html).
+
 → [`design/README.md`](./design/README.md)
 
 ---
