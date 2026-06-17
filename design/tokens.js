@@ -1,6 +1,6 @@
 // GENERATED from tokens.json — do not edit. Rebuild: node design/build-tokens.mjs
 export const tokens = {
-  "$version": "2.3.0",
+  "$version": "2.5.0",
   "color": {
     "raw": {
       "linen": "#F5F1EB",

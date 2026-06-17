@@ -47,7 +47,7 @@ The visual identity of Kinetika. Codenamed **ir0nm0nk**, after the edge compute 
 - `Syne` — interface, labels; the structure of the system
 - `DM Mono` — technical, data; the honesty of the system
 
-**Tone:** Warm-dark by default. Light mode on a Linen base. Not cool-dark like most dark themes — warm and honest.
+**Tone:** Warm-dark by default. Light mode on an Alloy White base — a disciplined warm off-white, not cool-dark like most dark themes — warm and honest.
 
 **Tokens:** [`design/tokens.json`](./design/tokens.json) is the source of truth (machine-readable, AX-friendly); `tokens.css` is generated from it through a WCAG AA contrast gate. Live preview: [`design/preview.html`](./design/preview.html).
 

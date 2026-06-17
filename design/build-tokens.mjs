@@ -403,7 +403,7 @@ const TEXT_CHECKS = [
   ['status-live', ['bg-base', 'bg-surface'], 4.5],
   ['status-warning', ['bg-base', 'bg-surface'], 4.5],
   ['status-error', ['bg-base', 'bg-surface'], 4.5],
-  ['status-online', ['bg-base', 'bg-surface'], 3.0],
+  ['status-online', ['bg-base', 'bg-surface'], 4.5],
   ['accent-primary', ['bg-base', 'bg-surface'], 3.0],   // also covers focus ring (1.4.11)
   ['accent-secondary', ['bg-base', 'bg-surface'], 3.0],
   ['accent-azure', ['bg-base', 'bg-surface'], 3.0],

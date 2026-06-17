@@ -4,7 +4,7 @@
 
 The visual identity of Kinetika. Codenamed `ir0nm0nk`, after the edge compute node that inspired it — a system that works without rest, leaving a mark from every use.
 
-**Version 2.3.0**
+**Version 2.5.0**
 
 ---
 
@@ -58,8 +58,8 @@ A system that claims to be *honest* can't have text that's unreadable. Every tex
 
 | Token | Hex | Usage |
 |---|---|---|
-| `--raw-linen` | `#F5F1EB` | Base bg (light) |
-| `--raw-cloud-dancer` | `#EDE8E0` | Primary text (dark), surface (light) |
+| `--raw-linen` | `#F5F1EB` | Warm near-white — button text on accents (light) |
+| `--raw-cloud-dancer` | `#EDE8E0` | Primary text (dark) |
 | `--raw-pale-alloy` | `#C8C4BE` | Secondary text (dark) |
 | `--raw-iron-mist` | `#8A8680` | Tertiary text (dark), disabled (light) |
 | `--raw-graphite` | `#4A4A48` | Disabled text (dark) |
@@ -78,9 +78,11 @@ A system that claims to be *honest* can't have text that's unreadable. Every tex
 | `--raw-patina-bright` | `#C0905A` | Patina **as text** on dark bg |
 | `--raw-verdigris` | `#5A7A6A` | Accent secondary — border, large UI |
 | `--raw-verdigris-bright` | `#85AE99` | Verdigris **as text** on dark bg |
-| `--raw-copper` | `#BE8E50` | Status live (dark) |
+| `--raw-copper` | `#BE8E50` | Spare warm accent (was Status live; Live is now azure blue) |
 | `--raw-amber` | `#CFA268` | Status warning (dark) |
 | `--raw-rust` | `#D4663F` | Status error (dark) |
+
+**System states** use four deliberately distinct hues so they never blur into one another: **Live** = azure blue, **Online** = verdigris green, **Warning** = amber, **Error** = rust red. (Live previously used copper, which sat too close to amber.)
 
 ### Extended Accents — Mineral Palette
 
@@ -104,8 +106,8 @@ The name `ir0nm0nk` contains *iron* — iron that meets air and time produces ru
 
 | Semantic token | Dark | Light |
 |---|---|---|
-| `--color-bg-base` | `#1C1C1B` ember | `#F5F1EB` linen |
-| `--color-bg-surface` | `#161615` void | `#EDE8E0` cloud dancer |
+| `--color-bg-base` | `#1C1C1B` ember | `#F1F0EC` alloy white |
+| `--color-bg-surface` | `#161615` void | `#E9E8E2` |
 | `--color-text-primary` | `#EDE8E0` cloud dancer | `#1C1C1B` ember |
 | `--color-text-secondary` | `#C8C4BE` pale alloy | `#2E2E2C` |
 | `--color-text-tertiary` | `#8A8680` iron mist | `#5A5A58` |
@@ -286,7 +288,7 @@ Secondary : transparent · text var(--color-text-secondary) · border var(--bord
 Contrast is verified **at build time** (`build-tokens.mjs`) for both themes, against `bg-base` and `bg-surface`:
 
 - All text roles (primary/secondary/tertiary, accent-text, all statuses) — **≥ 4.5:1** (AA)
-- Large/UI elements (base accent, status-online dot) — **≥ 3:1**
+- Large/UI elements (base accent) — **≥ 3:1**; all four system states (live/online/warning/error) now meet the **4.5:1** text target in both themes
 - `--color-text-disabled` and `--color-text-ghost` are intentionally below AA — **decorative only**, never for information that must be read
 
 A live audit lives in [`preview.html`](./preview.html) — the contrast table recomputes itself on every theme switch.
@@ -320,6 +322,16 @@ Open [`design/preview.html`](./preview.html) in a browser — the whole palette,
 ---
 
 ## Changelog
+
+### 2.5.0 (2026-06)
+- **Light base re-derived to "Alloy White" `#F1F0EC`:** the old Linen base had a stronger amber cast (red–blue gap ≈10) than the rest of the metallic scale (gap ≈1–2 at the dark end), so it read as a chosen cream rather than the light end of the same ramp. The whole light neutral ramp (base/surface/elevated/sunken/overlay) is re-derived as a disciplined warm off-white that matches the gray scale
+- `--raw-linen` / `--raw-cloud-dancer` keep their other roles (button text on accents; dark primary text); light neutrals are now intentional one-offs in the semantic layer
+- All 122 contrast checks still pass in both themes
+
+### 2.4.0 (2026-06)
+- **System states made visually distinct:** Live moved from copper to **azure blue** — it was nearly the same hue as Warning (amber) and the two blurred. States are now four clearly separate hues: Live (azure) / Online (green) / Warning (amber) / Error (red)
+- Live and Online now use the `-bright` / text variants so all four states meet the **4.5:1** text target (Online was previously dot-only at 3:1); contrast gate tightened to 4.5 for `status-online`
+- `--raw-copper` is now a spare warm accent (no longer mapped to a state)
 
 ### 2.3.0 (2026-06)
 - **Extended accent palette:** four new mineral-named accent families — `azure` (blue), `teal` (cyan), `amethyst` (violet), `garnet` (rose) — spread across the hue wheel so accents no longer blur into one warm lane. Previously only patina + verdigris were distinguishable

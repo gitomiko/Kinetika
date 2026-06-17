@@ -1,6 +1,6 @@
 /**
  * KINETIKA DESIGN SYSTEM
- * tokens.css — Design Tokens v2.3.0
+ * tokens.css — Design Tokens v2.5.0
  *
  * ir0nm0nk visual identity
  * Built by hand. Honest by default.
@@ -68,7 +68,7 @@
   --raw-verdigris-mid        : #2A4A42; /* Verdigris border (dark) */
   --raw-verdigris-light      : #DFF0EA; /* Light bg for verdigris badges */
   --raw-verdigris-text-light : #3A6A5A; /* Verdigris text on light bg (5.1:1 on linen) */
-  --raw-copper               : #BE8E50; /* Live status on dark (5.8:1) — copper glow */
+  --raw-copper               : #BE8E50; /* Spare warm accent — copper glow (5.8:1). Was status-live; Live is now azure-bright */
   --raw-amber                : #CFA268; /* Warning status on dark (7.3:1) — heated metal */
   --raw-rust                 : #D4663F; /* Error status on dark (4.7:1) — oxidized iron */
   --raw-azure                : #5E7693; /* Accent — azurite blue (oxidized copper carbonate). Borders & large UI on dark (3.7:1); use azure-bright for text */
@@ -152,8 +152,8 @@
   --color-accent-garnet-text      : var(--raw-garnet-bright);
 
   /* Status */
-  --color-status-live    : var(--raw-copper);
-  --color-status-online  : var(--raw-verdigris);
+  --color-status-live    : var(--raw-azure-bright);
+  --color-status-online  : var(--raw-verdigris-bright);
   --color-status-warning : var(--raw-amber);
   --color-status-error   : var(--raw-rust);
 
@@ -178,11 +178,11 @@
   color-scheme: light;
 
   /* Backgrounds */
-  --color-bg-base     : var(--raw-linen);
-  --color-bg-surface  : var(--raw-cloud-dancer);
-  --color-bg-elevated : #E8E3DB;
-  --color-bg-sunken   : #D4CFC8;
-  --color-bg-overlay  : #FDFAF6;
+  --color-bg-base     : #F1F0EC;
+  --color-bg-surface  : #E9E8E2;
+  --color-bg-elevated : #E1E0D9;
+  --color-bg-sunken   : #D2D1C9;
+  --color-bg-overlay  : #F7F6F2;
 
   /* Text */
   --color-text-primary   : var(--raw-ember);
@@ -223,7 +223,7 @@
   --color-accent-garnet-text      : var(--raw-garnet-text-light);
 
   /* Status */
-  --color-status-live    : #855E34;
+  --color-status-live    : var(--raw-azure-text-light);
   --color-status-online  : #4A6658;
   --color-status-warning : #7E5A30;
   --color-status-error   : #A32D2D;
@@ -246,11 +246,11 @@
   color-scheme: light;
 
   /* Backgrounds */
-  --color-bg-base     : var(--raw-linen);
-  --color-bg-surface  : var(--raw-cloud-dancer);
-  --color-bg-elevated : #E8E3DB;
-  --color-bg-sunken   : #D4CFC8;
-  --color-bg-overlay  : #FDFAF6;
+  --color-bg-base     : #F1F0EC;
+  --color-bg-surface  : #E9E8E2;
+  --color-bg-elevated : #E1E0D9;
+  --color-bg-sunken   : #D2D1C9;
+  --color-bg-overlay  : #F7F6F2;
 
   /* Text */
   --color-text-primary   : var(--raw-ember);
@@ -291,7 +291,7 @@
   --color-accent-garnet-text      : var(--raw-garnet-text-light);
 
   /* Status */
-  --color-status-live    : #855E34;
+  --color-status-live    : var(--raw-azure-text-light);
   --color-status-online  : #4A6658;
   --color-status-warning : #7E5A30;
   --color-status-error   : #A32D2D;
