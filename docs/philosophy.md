@@ -2,60 +2,60 @@
 
 > *Oxidized, not polished.*
 
-Kinetika bukan sekadar kumpulan tools. Ia adalah pernyataan tentang bagaimana seharusnya teknologi personal bekerja — dan untuk siapa.
+Kinetika isn't just a collection of tools. It's a statement about how personal technology should work — and who it should work for.
 
 ---
 
-## Empat Prinsip
+## The Four Principles
 
 ### 01 — Materials show their age
 
-Copper oxidizes. Iron rusts. Kayu retak seiring waktu. Itu bukan kegagalan — itu bukti bahwa sesuatu telah digunakan, dirawat, dan hidup.
+Copper oxidizes. Iron rusts. Wood cracks over time. That's not failure — it's proof that something has been used, cared for, and lived with.
 
-Sistem yang terlalu polished menyembunyikan sejarahnya. Kinetika tidak. Konfigurasi, keputusan, dan trade-off semuanya terekspos — bukan karena ketidakmampuan untuk menyembunyikannya, tapi karena kejujuran adalah nilai, bukan kelemahan.
+A system that's too polished hides its history. Kinetika doesn't. Configuration, decisions, and trade-offs are all exposed — not because they couldn't be hidden, but because honesty is a value, not a weakness.
 
-Warna aksen Patina dan Verdigris bukan sekadar estetika — mereka adalah pengingat bahwa usia dan penggunaan adalah tanda kualitas, bukan keusangan.
+The Patina and Verdigris accent colors aren't just aesthetics — they're a reminder that age and use are signs of quality, not obsolescence.
 
 ### 02 — Nothing is hidden
 
-Struktur adalah desain.
+Structure is the design.
 
-Setiap layer Kinetika — OS, dashboard, network, AI stack — dirancang agar dapat dibuka dan dibaca. Tidak ada magic. Tidak ada abstraksi yang menyembunyikan mekanisme di baliknya.
+Every layer of Kinetika — OS, dashboard, network, AI stack — is built to be opened and read. No magic. No abstraction that hides the mechanism behind it.
 
-Ini bukan berarti semuanya harus manual. Ini berarti ketika kamu ingin tahu *mengapa* sesuatu bekerja, jawabannya selalu bisa ditemukan.
+This doesn't mean everything has to be manual. It means that when you want to know *why* something works, the answer can always be found.
 
 ### 03 — Warmth over coolness
 
-Ada tradisi panjang dalam desain teknologi yang mengasosiasikan komputasi dengan dingin — warna biru, permukaan metal yang steril, jarak yang presisi.
+There's a long tradition in technology design that associates computing with cold — blue tones, sterile metal surfaces, precise distance.
 
-Kinetika menolak ini.
+Kinetika rejects this.
 
-Teknologi yang dibuat oleh tangan manusia, untuk tangan manusia, boleh terasa hangat. Base warna yang warm, tipografi yang editorial, aksen yang organik — semua ini bukan kontradiksi dengan fungsi. Mereka adalah bagian dari fungsi.
+Technology made by human hands, for human hands, is allowed to feel warm. A warm color base, editorial typography, organic accents — none of this contradicts function. It's part of the function.
 
 ### 04 — DIY is a principle, not a limitation
 
-"DIY" sering dipahami sebagai kompromi — hasil yang lebih kasar karena dibuat sendiri, bukan oleh profesional.
+"DIY" is often understood as a compromise — a rougher result because it was made yourself instead of by a professional.
 
-Di Kinetika, DIY adalah filosofi epistemologis: **kamu hanya benar-benar memiliki sesuatu jika kamu memahaminya.**
+In Kinetika, DIY is an epistemological philosophy: **you only truly own something if you understand it.**
 
-Setiap keputusan dalam sistem ini — pemilihan distro, stack homelab, design system — dibuat dengan kesadaran penuh tentang trade-off-nya. Bukan karena ini yang paling mudah, tapi karena ini yang paling *dimengerti*.
+Every decision in this system — the choice of distro, the homelab stack, the design system — is made with full awareness of its trade-offs. Not because it's the easiest path, but because it's the most *understood* one.
 
 ---
 
-## Hubungan dengan AX
+## Relationship to AX
 
-Filosofi ini secara langsung membentuk pendekatan Kinetika terhadap **Agent Experience (AX)**.
+This philosophy directly shapes Kinetika's approach to **Agent Experience (AX)**.
 
-Jika sistem harus transparan untuk manusia, ia juga harus transparan untuk agent. Struktur yang dapat dibaca manusia adalah struktur yang dapat dinavigasi agent. Ini bukan kebetulan — ini adalah konsekuensi logis dari prinsip *nothing is hidden*.
+If a system must be transparent to humans, it must be transparent to agents too. A structure that's readable by humans is a structure that's navigable by agents. This isn't a coincidence — it's a logical consequence of the *nothing is hidden* principle.
 
 → [`ax.md`](./ax.md)
 
 ---
 
-## Referensi Pengaruh
+## Influences
 
-- **John Maeda** — *The Laws of Simplicity*, konsep AX (Agent Experience)
+- **John Maeda** — *The Laws of Simplicity*, the concept of AX (Agent Experience)
 - **Dieter Rams** — "Good design is as little design as possible"
-- **Tradisi DIY/homelab** — self-hosting sebagai kedaulatan digital
-- **Omarchy** — curated Arch sebagai preseden opinionated distro
-- **asus-linux.org** — komunitas hardware-specific Linux sebagai model kontribusi
+- **The DIY/homelab tradition** — self-hosting as digital sovereignty
+- **Omarchy** — curated Arch as a precedent for an opinionated distro
+- **asus-linux.org** — hardware-specific Linux community as a contribution model

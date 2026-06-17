@@ -2,42 +2,25 @@
 
 > *Built by hand. Honest by default.*
 
-**Kinetika** adalah ekosistem komputasi personal yang dibangun dari bawah — dari OS hingga aplikasi, dari homelab hingga lokal AI. Setiap layer dapat dimengerti, diganti, dan dikembangkan sendiri.
+**Kinetika** is a personal computing ecosystem built from the ground up — from the OS to applications, from the homelab to local AI. Every layer can be understood, replaced, and developed yourself.
 
 ---
 
-## Ekosistem
+## Philosophy
 
-```
-Kinetika
-├── KinetikaOS          — Arch-based distro, fondasi seluruh sistem
-│   ├── Workstation     — Daily driver, AMD-optimized, GNOME
-│   └── Server          — Headless edition untuk homelab (planned)
-│
-├── Kinetika HQ         — Dashboard homelab (single-page launcher)
-├── Kost HQ             — Manajemen properti via WhatsApp (Baileys)
-└── ir0nm0nk            — Edge compute node + visual identity sistem
-```
-
-→ [`KinetikaOS`](https://github.com/gitomiko/KinetikaOS) — repo distro
-
----
-
-## Filosofi
-
-Kinetika dibangun di atas empat prinsip:
+Kinetika is built on four principles:
 
 **01 — Materials show their age.**
-Copper oxidizes, iron rusts — itu bukan kegagalan, itu karakter. Sistem yang jujur tidak menyembunyikan bekasnya.
+Copper oxidizes, iron rusts — that's not failure, it's character. An honest system doesn't hide its wear.
 
 **02 — Nothing is hidden.**
-Sistem mengekspos strukturnya karena struktur *adalah* desainnya. Setiap layer dapat dibuka, dibaca, dan dimodifikasi.
+The system exposes its structure because the structure *is* the design. Every layer can be opened, read, and modified.
 
 **03 — Warmth over coolness.**
-Teknologi tidak harus dingin. Ia bisa membawa tekstur dari tangan yang membuatnya.
+Technology doesn't have to be cold. It can carry the texture of the hands that made it.
 
 **04 — DIY is a principle, not a limitation.**
-Setiap layer dapat diketahui, diganti, dan diperbaiki. Ketergantungan adalah pilihan, bukan keharusan.
+Every layer can be known, replaced, and repaired. Dependency is a choice, not a requirement.
 
 → [`docs/philosophy.md`](./docs/philosophy.md)
 
@@ -45,31 +28,27 @@ Setiap layer dapat diketahui, diganti, dan diperbaiki. Ketergantungan adalah pil
 
 ## AX — Agent Experience
 
-Di inti Kinetika terdapat filosofi **AX (Agent Experience)** — pendekatan desain yang memperlakukan AI agent sebagai warga negara kelas satu dalam sistem, sejajar dengan pengguna manusia.
+At the core of Kinetika is the philosophy of **AX (Agent Experience)** — a design approach that treats AI agents as first-class citizens of the system, on equal footing with human users.
 
-Jika UX bertanya *bagaimana manusia menggunakan ini?*, AX bertanya *bagaimana agent bernavigasi dalam sistem ini, dan bagaimana kita mendesain untuk keduanya?*
+Where UX asks *how do humans use this?*, AX asks *how does an agent navigate this system, and how do we design for both?*
 
 → [`docs/ax.md`](./docs/ax.md)
 
 ---
 
-## Design System — ir0nm0nk
+## Kinetika Design System
 
-Identitas visual Kinetika. Dinamai dari edge compute node yang menginspirasinya.
+The visual identity of Kinetika. Codenamed **ir0nm0nk**, after the edge compute node that inspired it.
 
-**Palette:** Cloud Dancer + skala Metallic Gray, dengan aksen Patina (oxidized copper) dan Verdigris (full patina)
+**Palette:** Cloud Dancer + a Metallic Gray scale, with Patina (oxidized copper) and Verdigris (full patina) accents.
 
-**Typography:** Tiga suara, satu sistem —
-- `Cormorant Garamond` — display, editorial, jiwa sistem
-- `Syne` — interface, label, struktur sistem
-- `DM Mono` — teknikal, data, kejujuran sistem
+**Typography:** Three voices, one system —
+- `Cormorant Garamond` — display, editorial; the soul of the system
+- `Syne` — interface, labels; the structure of the system
+- `DM Mono` — technical, data; the honesty of the system
 
-**Tone:** Warm-dark sebagai default. Light mode dengan base Linen. Bukan cool-dark seperti kebanyakan dark theme — warm dan honest.
+**Tone:** Warm-dark by default. Light mode on a Linen base. Not cool-dark like most dark themes — warm and honest.
 
-**Tokens:** [`design/tokens.json`](./design/tokens.json) adalah source of truth (machine-readable, AX-friendly); `tokens.css` digenerate darinya dengan gerbang kontras WCAG AA. Live preview: [`design/preview.html`](./design/preview.html).
+**Tokens:** [`design/tokens.json`](./design/tokens.json) is the source of truth (machine-readable, AX-friendly); `tokens.css` is generated from it through a WCAG AA contrast gate. Live preview: [`design/preview.html`](./design/preview.html).
 
 → [`design/README.md`](./design/README.md)
-
----
-
-## Hardware Reference
