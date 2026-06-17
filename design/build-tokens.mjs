@@ -85,11 +85,8 @@ ${props(pick(tokens.color[mode], 'text-'), 'color-')}
   /* Borders */
 ${props(pick(tokens.color[mode], 'border-'), 'color-')}
 
-  /* Accent — Patina (primary) */
-${props(pick(tokens.color[mode], 'accent-primary'), 'color-')}
-
-  /* Accent — Verdigris (secondary) */
-${props(pick(tokens.color[mode], 'accent-secondary'), 'color-')}
+  /* Accents — patina (primary), verdigris (secondary) + mineral palette (azure, teal, amethyst, garnet) */
+${props(pick(tokens.color[mode], 'accent-'), 'color-')}
 
   /* Status */
 ${props(pick(tokens.color[mode], 'status-'), 'color-')}
@@ -114,7 +111,34 @@ ${banner('MOTION — reduced motion')}
     --duration-base: 0ms;
     --duration-slow: 0ms;
   }
+  /* Zeroed durations already make recipe-driven motion instant; this also
+     stops any infinite keyframe animation (e.g. the live-status pulse). */
+  [class*="k-animate-"] { animation: none; }
 }
+
+${banner('KINETICS — keyframes + motion utilities')}
+/* A system named Kinetika ships a motion language, not just timing tokens.
+   Each utility composes a keyframe with a --motion-* recipe, so durations
+   stay token-driven and reduced-motion neutralizes them automatically. */
+@keyframes k-rise   { from { opacity: 0; transform: translateY(8px);   } to { opacity: 1; transform: none; } }
+@keyframes k-fade   { from { opacity: 0;                                } to { opacity: 1;                  } }
+@keyframes k-settle { from { opacity: 0; transform: scale(0.98);        } to { opacity: 1; transform: none; } }
+@keyframes k-slide  { from { opacity: 0; transform: translateX(-12px);  } to { opacity: 1; transform: none; } }
+@keyframes k-pulse  { 0%, 100% { opacity: 1; } 50% { opacity: 0.55; } }
+
+.k-animate-rise   { animation: k-rise   var(--motion-enter); }
+.k-animate-fade   { animation: k-fade   var(--motion-enter); }
+.k-animate-settle { animation: k-settle var(--motion-emphasis); }
+.k-animate-slide  { animation: k-slide  var(--motion-enter); }
+/* Continuous, subtle — for live-status indicators. Off under reduced motion. */
+.k-animate-pulse  { animation: k-pulse calc(var(--duration-slow) * 5) var(--ease-standard) infinite; }
+
+/* Transition helpers — opt-in. Pair .k-lift with a hover to get the chip lift. */
+.k-transition { transition: all var(--motion-transition); }
+.k-lift {
+  transition: transform var(--motion-transition), border-color var(--motion-transition);
+}
+.k-lift:hover { transform: translateY(-4px); }
 
 ${banner('UTILITY CLASSES (optional, opt-in)')}
 .k-label {
@@ -183,6 +207,24 @@ ${banner('UTILITY CLASSES (optional, opt-in)')}
   letter-spacing: var(--badge-tracking);
   text-transform: uppercase;
 }
+
+/* Extended accent badges — share the badge recipe, swap the accent family */
+.k-badge-azure,
+.k-badge-teal,
+.k-badge-amethyst,
+.k-badge-garnet {
+  font-family   : var(--badge-font);
+  font-size     : var(--badge-size);
+  padding       : var(--badge-padding);
+  border-radius : var(--badge-radius);
+  letter-spacing: var(--badge-tracking);
+  text-transform: uppercase;
+  border        : var(--border-width-default) solid;
+}
+.k-badge-azure    { background: var(--color-accent-azure-bg);    color: var(--color-accent-azure-text);    border-color: var(--color-accent-azure-border); }
+.k-badge-teal     { background: var(--color-accent-teal-bg);     color: var(--color-accent-teal-text);     border-color: var(--color-accent-teal-border); }
+.k-badge-amethyst { background: var(--color-accent-amethyst-bg); color: var(--color-accent-amethyst-text); border-color: var(--color-accent-amethyst-border); }
+.k-badge-garnet   { background: var(--color-accent-garnet-bg);   color: var(--color-accent-garnet-text);   border-color: var(--color-accent-garnet-border); }
 
 .k-focusable:focus-visible {
   outline       : var(--focus-ring);
@@ -293,6 +335,9 @@ ${props(tokens.duration, 'duration-', { comments: true })}
 
   /* Easings */
 ${props(tokens.ease, 'ease-', { comments: true })}
+
+  /* Recipes — duration + easing, ready for transition/animation shorthands */
+${props(tokens.motion, 'motion-', { comments: true })}
 }
 
 ${banner('Z-INDEX')}
@@ -351,12 +396,20 @@ const TEXT_CHECKS = [
   ['text-tertiary', CORE, 4.5],
   ['accent-primary-text', CORE, 4.5],
   ['accent-secondary-text', CORE, 4.5],
+  ['accent-azure-text', CORE, 4.5],
+  ['accent-teal-text', CORE, 4.5],
+  ['accent-amethyst-text', CORE, 4.5],
+  ['accent-garnet-text', CORE, 4.5],
   ['status-live', ['bg-base', 'bg-surface'], 4.5],
   ['status-warning', ['bg-base', 'bg-surface'], 4.5],
   ['status-error', ['bg-base', 'bg-surface'], 4.5],
   ['status-online', ['bg-base', 'bg-surface'], 3.0],
   ['accent-primary', ['bg-base', 'bg-surface'], 3.0],   // also covers focus ring (1.4.11)
   ['accent-secondary', ['bg-base', 'bg-surface'], 3.0],
+  ['accent-azure', ['bg-base', 'bg-surface'], 3.0],
+  ['accent-teal', ['bg-base', 'bg-surface'], 3.0],
+  ['accent-amethyst', ['bg-base', 'bg-surface'], 3.0],
+  ['accent-garnet', ['bg-base', 'bg-surface'], 3.0],
 ];
 
 // [foreground, background, target] — both looked up in color[mode] OR color.component[mode]
@@ -364,6 +417,10 @@ const PAIR_CHECKS = [
   ['btn-primary-text', 'btn-primary-bg', 4.5],          // primary button label
   ['accent-primary-text', 'accent-primary-bg', 4.5],    // patina badge
   ['accent-secondary-text', 'accent-secondary-bg', 4.5],// verdigris badge
+  ['accent-azure-text', 'accent-azure-bg', 4.5],        // azure badge
+  ['accent-teal-text', 'accent-teal-bg', 4.5],          // teal badge
+  ['accent-amethyst-text', 'accent-amethyst-bg', 4.5],  // amethyst badge
+  ['accent-garnet-text', 'accent-garnet-bg', 4.5],      // garnet badge
 ];
 
 // non-text component boundaries vs the surfaces they sit on (1.4.11, ≥3:1)

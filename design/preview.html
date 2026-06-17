@@ -154,6 +154,25 @@
   .m-base { transition: all var(--duration-base) var(--ease-out); }
   .m-slow { transition: all var(--duration-slow) var(--ease-out); }
 
+  /* --- animation utility demo --- */
+  .anim-grid { display: flex; gap: var(--space-4); flex-wrap: wrap; margin-top: var(--space-5); }
+  .anim-cell {
+    font-family: var(--font-technical); font-size: var(--text-xs);
+    letter-spacing: var(--tracking-wider); text-transform: uppercase;
+    color: var(--color-text-secondary);
+    background: var(--color-bg-surface); border: var(--border-default);
+    border-radius: var(--radius-sm); padding: var(--space-3) var(--space-4);
+    min-width: 120px; text-align: center;
+  }
+  .replay {
+    font-family: var(--font-interface); font-size: var(--text-sm); font-weight: var(--weight-medium);
+    letter-spacing: var(--tracking-wide); text-transform: uppercase;
+    color: var(--color-accent-primary-text);
+    background: none; border: var(--border-strong); border-radius: var(--radius-sm);
+    padding: var(--space-2) var(--space-4); cursor: pointer; margin-top: var(--space-5);
+  }
+  .replay:hover { border-color: var(--color-accent-primary-border); }
+
   footer { color: var(--color-text-ghost); font-family: var(--font-technical);
            font-size: var(--text-xs); letter-spacing: var(--tracking-wider); }
 </style>
@@ -213,6 +232,10 @@
     <span class="status status-error"><span class="dot"></span>error</span>
     <span class="k-badge-patina">patina</span>
     <span class="k-badge-verdigris">verdigris</span>
+    <span class="k-badge-azure">azure</span>
+    <span class="k-badge-teal">teal</span>
+    <span class="k-badge-amethyst">amethyst</span>
+    <span class="k-badge-garnet">garnet</span>
   </div>
 </section>
 
@@ -249,12 +272,12 @@
     </div>
     <p class="section-note">Tab through the controls to see the focus ring (<code class="k-mono">--focus-ring</code>).</p>
     <nav class="demo" aria-label="demo nav">
-      <span class="k-label" style="padding: var(--nav-padding); display:block;">homelab</span>
-      <a href="#" class="current">Core</a>
-      <a href="#">Infra</a>
-      <a href="#">Storage</a>
-      <a href="#">Media</a>
-      <a href="#">Bisnis</a>
+      <span class="k-label" style="padding: var(--nav-padding); display:block;">menu</span>
+      <a href="#" class="current">Overview</a>
+      <a href="#">Components</a>
+      <a href="#">Tokens</a>
+      <a href="#">Motion</a>
+      <a href="#">Settings</a>
     </nav>
   </div>
 </section>
@@ -268,6 +291,16 @@
     <div class="motion-chip m-base">base · 200ms · ease-out</div>
     <div class="motion-chip m-slow">slow · 320ms · ease-out</div>
   </div>
+
+  <p class="section-note" style="margin-top:var(--space-6)">Motion utilities — each composes a keyframe with a <code class="k-mono">--motion-*</code> recipe. Hover the cells to feel <code class="k-mono">.k-lift</code>; press Replay to re-run the entrances.</p>
+  <div class="anim-grid" id="animGrid">
+    <div class="anim-cell k-lift k-animate-rise">.k-animate-rise</div>
+    <div class="anim-cell k-lift k-animate-fade">.k-animate-fade</div>
+    <div class="anim-cell k-lift k-animate-settle">.k-animate-settle</div>
+    <div class="anim-cell k-lift k-animate-slide">.k-animate-slide</div>
+    <div class="anim-cell k-animate-pulse">.k-animate-pulse</div>
+  </div>
+  <button class="replay" id="replayMotion">↻ Replay</button>
 </section>
 
 <footer>built by hand · honest by default · tokens.json → build-tokens.mjs → tokens.css</footer>
@@ -284,18 +317,37 @@
   }
   buttons.forEach(b => b.addEventListener('click', () => setTheme(b.dataset.set)));
 
+  /* ---- motion replay: re-trigger the entrance animations ---- */
+  const replayBtn = document.getElementById('replayMotion');
+  if (replayBtn) {
+    replayBtn.addEventListener('click', () => {
+      document.querySelectorAll('#animGrid [class*="k-animate-"]').forEach(el => {
+        const prev = el.style.animation;
+        el.style.animation = 'none';
+        void el.offsetWidth;          // force reflow so the animation restarts
+        el.style.animation = prev;
+      });
+    });
+  }
+
   /* ---- token rendering ---- */
   const RAW = ['linen','cloud-dancer','pale-alloy','iron-mist','graphite','ash','forge','coal',
     'ember','void','soot','patina','patina-bright','patina-deep','patina-mid','patina-light',
     'patina-text-light','verdigris','verdigris-bright','verdigris-deep','verdigris-mid',
-    'verdigris-light','verdigris-text-light','copper','amber','rust'];
+    'verdigris-light','verdigris-text-light','copper','amber','rust',
+    'azure','azure-bright','azure-text-light','teal','teal-bright','teal-text-light',
+    'amethyst','amethyst-bright','amethyst-text-light','garnet','garnet-bright','garnet-text-light'];
 
   // [token, target ratio] — mirrors the checks in build-tokens.mjs
   const CHECKS = [
     ['text-primary', 4.5], ['text-secondary', 4.5], ['text-tertiary', 4.5],
     ['accent-primary-text', 4.5], ['accent-secondary-text', 4.5],
+    ['accent-azure-text', 4.5], ['accent-teal-text', 4.5],
+    ['accent-amethyst-text', 4.5], ['accent-garnet-text', 4.5],
     ['status-live', 4.5], ['status-warning', 4.5], ['status-error', 4.5],
     ['status-online', 3.0], ['accent-primary', 3.0], ['accent-secondary', 3.0],
+    ['accent-azure', 3.0], ['accent-teal', 3.0],
+    ['accent-amethyst', 3.0], ['accent-garnet', 3.0],
   ];
 
   const probe = document.createElement('div');

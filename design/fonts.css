@@ -2,9 +2,9 @@
  * KINETIKA DESIGN SYSTEM — fonts
  *
  * Three voices, one system:
- *   Cormorant Garamond — display   (jiwa sistem)
- *   Syne               — interface (struktur sistem)
- *   DM Mono            — technical (kejujuran sistem)
+ *   Cormorant Garamond — display   (the soul of the system)
+ *   Syne               — interface (the structure of the system)
+ *   DM Mono            — technical (the honesty of the system)
  *
  * Preferred (non-blocking) — put this in <head> instead of importing this file:
  *
@@ -18,6 +18,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Syne:wght@400;500;700;800&family=DM+Mono:wght@300;400;500&display=swap');
 
 /*
- * Roadmap: self-host these (all three are OFL-licensed) so no request
- * leaves the homelab — fonts should be as sovereign as everything else.
+ * Roadmap: self-host these (all three are OFL-licensed) so there are no
+ * external requests — the package stays fully self-contained.
  */
