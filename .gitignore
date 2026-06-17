@@ -1,4 +1,6 @@
 .DS_Store
+node_modules/
+dist/
 .ds-sync/
 ds-bundle/
 .design-sync/.cache/

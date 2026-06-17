@@ -461,3 +461,51 @@ if (failed) {
 
 writeFileSync(join(here, 'tokens.css'), css);
 console.log(`\ntokens.css written (v${tokens.$version}) — all contrast checks passed.`);
+
+/* ---------- framework-neutral JS/TS token export ---------- */
+
+// Resolve {alias} chains down to literal values (e.g. motion → "200ms cubic-bezier(...)").
+const litVal = (v) =>
+  String(v).replace(/\{([a-zA-Z0-9.-]+)\}/g, (_, path) => {
+    const t = path.split('.').reduce((o, k) => (o ? o[k] : undefined), tokens);
+    return t && t.$value !== undefined ? litVal(t.$value) : `var(${varName(path)})`;
+  });
+
+const grp = (g) => Object.fromEntries(entries(g).map(([k, t]) => [k, litVal(t.$value)]));
+
+const jsTokens = {
+  $version: tokens.$version,
+  color: { raw: grp(tokens.color.raw) },
+  space: grp(tokens.space),
+  text: grp(tokens.text),
+  radius: grp(tokens.radius),
+  borderWidth: grp(tokens['border-width']),
+  weight: grp(tokens.weight),
+  leading: grp(tokens.leading),
+  tracking: grp(tokens.tracking),
+  duration: grp(tokens.duration),
+  ease: grp(tokens.ease),
+  motion: grp(tokens.motion),
+  z: grp(tokens.z),
+};
+
+writeFileSync(
+  join(here, 'tokens.js'),
+  `// GENERATED from tokens.json — do not edit. Rebuild: node design/build-tokens.mjs\n` +
+    `export const tokens = ${JSON.stringify(jsTokens, null, 2)};\n\nexport default tokens;\n`,
+);
+
+writeFileSync(
+  join(here, 'tokens.d.ts'),
+  `// GENERATED from tokens.json — do not edit.\n` +
+    `type TokenMap = Record<string, string>;\n` +
+    `declare const tokens: {\n` +
+    `  $version: string;\n` +
+    `  color: { raw: TokenMap };\n` +
+    `  space: TokenMap; text: TokenMap; radius: TokenMap; borderWidth: TokenMap;\n` +
+    `  weight: TokenMap; leading: TokenMap; tracking: TokenMap;\n` +
+    `  duration: TokenMap; ease: TokenMap; motion: TokenMap; z: TokenMap;\n` +
+    `};\nexport { tokens };\nexport default tokens;\n`,
+);
+
+console.log('tokens.js + tokens.d.ts written (framework-neutral export).');
