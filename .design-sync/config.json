@@ -1,5 +1,5 @@
 {
-  "projectId": "7c2a4b59-88c1-4a70-927c-3426c2ed27c6",
+  "projectId": "05331ee3-d586-41cf-8232-0abb756c65b2",
   "pkg": "kinetika",
   "globalName": "Kinetika",
   "shape": "package",
@@ -10,6 +10,7 @@
     "Card": "src/components/Card.jsx"
   },
   "buildCmd": "npm run build",
+  "readmeHeader": ".design-sync/conventions.md",
   "dtsPropsFor": {
     "Button": "variant?: 'primary' | 'secondary'; type?: string; className?: string; style?: React.CSSProperties; children?: React.ReactNode; disabled?: boolean; onClick?: React.MouseEventHandler<HTMLButtonElement>;",
     "Badge": "variant?: 'patina' | 'verdigris' | 'azure' | 'teal' | 'amethyst' | 'garnet'; className?: string; children?: React.ReactNode;",
